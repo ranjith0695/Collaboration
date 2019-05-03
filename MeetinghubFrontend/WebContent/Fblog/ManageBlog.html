@@ -1,0 +1,32 @@
+<div class="container" ng-controller="BlogController" >
+<table class="table table-hover"  align="center">
+   
+   <tr class="success">
+   <th>BlogID</th>
+   <th>Blog Name</th>
+   <th>Created By</th>
+   <th>Created On</th>
+   <th>Approve/Reject</th>
+   </tr>
+   <tr ng-repeat="blog in blogdata">
+   
+   <td>{{blog.blogid}}</td>
+   <td>{{blog.blogname}}</td>
+   <td>{{blog.username}}</td>
+   <td>{{blog.createddate}}</td>
+   <td ng-show="blog.status=='NotApprove'">
+   <input type="button" value="Approve" ng-click="approveblog(blog.blogid)" class="btn btn-success"/>
+   </td>
+   
+   <td ng-show="blog.status=='Approve'">
+   <input type="button" value="NotApprove" ng-click="rejectblog(blog.blogid)" class="btn btn-danger"/>
+   </td>
+   </tr>
+         
+</table>
+</div>
+
+
+
+
+

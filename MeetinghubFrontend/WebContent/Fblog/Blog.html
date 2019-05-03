@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<div class="container" ng-controller="BlogController">
+<center>
+    <h2>ADD YOUR BLOG </h2></center>
+    <div class="row">
+    <form>
+        <div class="col-md-12 form-group">
+        <label>Blog Name</label>
+            <input type="text" name="blogname" ng-model="blog.blogname" class="form-control" placeholder="BlogName" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group">
+           <label>Blog Content</label> <textarea rows="6" cols="20" name="blogcontent" 
+            ng-model="blog.blogcontent" placeholder="Enter The Text" class="form-control" required></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group">
+          <center>  <input type="submit" value="Add Blog" class="btn btn-success" ng-click="addblog()" /></center>
+        </div>
+    </div>
+   </form>
+</div>
+</html>

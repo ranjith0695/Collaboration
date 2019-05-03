@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<div class="container" ng-controller="UserController">
+        <div class="row centered-form">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+        	<div class="panel panel-default">
+        		<div class="panel-heading">
+			    		<h3 class="panel-title"><center>Register As New User</center></h3>
+			 			</div>
+			 			<div class="panel-body">
+			    		<form role="form">
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    					<label>Customer Name</label>
+			                <input type="text" name="customername" id="customername" ng-model="User.customername"
+			                class="form-control input-sm floatlabel" placeholder="Customer Name" required>
+			    					</div>
+			    				</div>
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    					<label>User Name</label>
+			    						<input type="text" name="username" id="username"  ng-model="User.username"
+			    						class="form-control input-sm" placeholder="User Name" required>
+			    					</div>
+			    				</div>
+			    			</div>
+
+			    			<div class="form-group">
+			    			<label>Email</label>
+			    				<input type="email" name="email" id="email" ng-model="User.emailid"
+			    				class="form-control input-sm" placeholder="Email Address" required>
+			    			</div>
+
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    					<label>Password</label>
+			    						<input type="password" name="password" id="password" ng-model="User.password"
+			    						class="form-control input-sm" placeholder="Password" required>
+			    					</div>
+			    				</div>
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    					<label>Mobile No</label>
+			    						<input type="tel" name="phone" id="phone" pattern="[7-9]{1}[0-9]{9}" ng-model="User.mobileno"
+			    						class="form-control input-sm" placeholder="Mobile No" maxlength="10" required>
+			    					</div>
+			    				</div>
+			    			</div>
+			    			
+			    			<input type="submit" value="Register" class="btn btn-info btn-block" ng-click="register()" />
+			    		
+			    		</form>
+			    	</div>
+	    		</div>
+    		</div>
+    	</div>
+    </div>
+    </html>
+    

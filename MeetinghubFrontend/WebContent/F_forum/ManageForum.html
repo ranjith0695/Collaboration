@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<div class="container" ng-controller="ForumController">
+  
+  <div ng-repeat="forum in forumdata" >
+  
+  <div class="panel panel-primary">
+      <div class="panel-heading">{{forum.forumname}}</div>
+      <div class="panel-body">{{forum.forumcontent}}</div>
+      <div class="panel-footer">Created BY:&nbsp;{{forum.username}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created ON:&nbsp;{{forum.createddate}}
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     
+  <input type="button" value="Delete" ng-click="deleteforum(forum.forumid)" class="btn btn-danger"/>
+  </div>
+    </div>
+ 
+
+  </div>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  
+  <div align="center">
+      <h3>Write A Message</h3>
+    <div class="row">
+    <form>
+        <div class="col-md-9 form-group">
+        <label>Forum Name</label>
+            <input type="text" name="Forumname" ng-model="forum.forumname" class="form-control" placeholder="ForumName" required/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9 form-group">
+           <label>Forum Content</label> <textarea rows="6" cols="20" name="Forumcontent" 
+            ng-model="forum.forumcontent" placeholder="Enter The Text" class="form-control" required/ ></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9 form-group">
+          <center>  <input type="submit" value="Add Forum" class="btn btn-success" ng-click="addforum()" /></center>
+        </div>
+    </div>
+   </form>
+  </div>
+  
+</div>
+</html>

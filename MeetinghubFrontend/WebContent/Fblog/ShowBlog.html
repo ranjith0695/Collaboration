@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<div class="container" ng-controller="BlogController">
+<table class="table table-striped" align="center">
+   
+   <tr class="Warning">
+   <th>BlogID</th>
+   <th>Blog Name</th>
+   <th>Created By</th>
+   <th>Created On</th>
+   <th colspan="4">Operations</th>
+   </tr>
+   <tr ng-repeat="blog in blogdata">
+   
+   <td>{{blog.blogid}}</td>
+   <td>{{blog.blogname}}</td>
+   <td>{{blog.username}}</td>
+   <td>{{blog.createddate}}</td>
+   <td colspan="4" >
+   <input type="button" value="ShowBlog" ng-click="showblog(blog.blogid)" class="btn btn-success"/>
+   <div ng-hide="currentUser.username==blog.username">
+   <button type="button"  ng-disabled="isDisabled"  ng-click="incrementlikes(blog.blogid)" class="btn btn-default btn-sm" disabled>
+          <span class="glyphicon glyphicon-thumbs-up"></span> Like
+        </button>
+   <button type="button"  ng-click="incrementdislikes(blog.blogid)" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-thumbs-down"></span> DisLike
+        </button>   </div>
+   <div ng-show="currentUser.username==blog.username">
+   <input type="button" value="Delete" ng-click="deleteblog(blog.blogid)" class="btn btn-danger"/>
+   <input type="button" value="Edit" ng-click="editblog(blog.blogid)" class="btn btn-info"/>
+   </div>
+   </td>
+   </tr>
+   
+   </table>
+   </div>
+   </html>

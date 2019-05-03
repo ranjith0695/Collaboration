@@ -1,0 +1,91 @@
+<div class="container" ng-controller="FriendController">
+<div class="p-3 mb-2 bg-info text-white">
+<h1><center><B><i>Friend List</i></B></center></h1>
+</div>
+
+<div class="rov text-center text-lg-left">
+   
+   <div ng-repeat="friend in friendlist" >
+   
+       <div ng-show="friend.username==currentUser.username">
+         <img src="http://localhost:8082/Middleware/getimage/{{friend.friendname}}" 
+         class="img-rounded" alt="Cinque Terre" width="300" height="300">
+         
+        <p><strong>{{friend.friendname}}</strong></p>
+        <p><input type="button" value="UnFriend" ng-click="unfriend(friend.friendid)" class="btn btn-danger"/></p> 
+                
+       </div>
+       
+       <div ng-show="friend.friendname==currentUser.username">
+         <img src="http://localhost:8082/Middleware/getimage/{{friend.username}}" 
+         class="img-rounded" alt="Cinque Terre" width="300" height="300">
+         
+         <p><strong>{{friend.username}}</strong></p>
+         <p><input type="button" value="UnFriend" ng-click="unfriend(friend.friendid)" class="btn btn-danger"/></p> 
+                 
+                
+       </div>
+   </div>
+</div>
+
+<div class="p-3 mb-2 bg-warning text-white">
+<h2><center><B><i>Pending Friend Request</i></B></center></h2>
+</div>
+
+<div class="rov text-center text-lg-left">
+   
+   <div ng-repeat="friend in pendingfriendlist" >
+   
+       <div ng-show="friend.username==currentUser.username">
+         <img src="http://localhost:8082/Middleware/getimage/{{friend.friendname}}" 
+         class="img-rounded" alt="Cinque Terre" width="300" height="300">
+         
+         <p>
+         <strong>{{friend.friendname}}</strong>
+         </p>
+         
+         <p> 
+         <input type="button" value="Accept" ng-click="acceptrequest(friend.friendid)" class="btn btn-success"/>
+         <input type="button" value="Reject" ng-click="unfriend(friend.friendid)" class="btn btn-danger"/> 
+         </p>
+                
+       </div>
+       
+       <div ng-show="friend.friendname==currentUser.username">
+         <img src="http://localhost:8082/Middleware/getimage/{{friend.username}}" 
+         class="img-rounded" alt="Cinque Terre" width="300" height="300">
+         
+         <p><strong>{{friend.username}}</strong></p>
+         
+         <p> 
+         <input type="button" value="Accept" ng-click="acceptrequest(friend.friendid)" class="btn btn-success"/>
+         <input type="button" value="Reject" ng-click="unfriend(friend.friendid)" class="btn btn-danger"/> 
+         </p>
+          
+                
+       </div>
+   </div>
+</div>
+
+<div class="p-3 mb-2 bg-primary text-white">
+<h3><center><B><i>Suggested Friend List</i></B></center></h3>
+</div>
+
+<div class="rov text-center text-lg-left">
+   
+   <div ng-repeat="friend in suggestedfriendlist" >
+   
+       <div >
+         <img src="http://localhost:8082/Middleware/getimage/{{friend.username}}" 
+         class="img-rounded" alt="Cinque Terre" width="300" height="300">
+         
+         <p><strong>{{friend.username}}</strong></p>
+         
+          <p> <input type="button" value="Send Request" ng-click="sendrequest(friend.username)" class="btn btn-success"/> </p>
+                
+       </div>
+       
+       
+   </div>
+</div>
+</div>

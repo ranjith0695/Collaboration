@@ -1,0 +1,47 @@
+<div class="container" ng-controller="BlogcmntController">
+ 
+ <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo"><left>{{bloginfo.blogname}}</left></button>
+ &nbsp;&nbsp;
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-thumbs-up"></span>
+        </button>&nbsp;&nbsp;{{bloginfo.likes}}
+        
+        &nbsp;&nbsp;
+        <button type="button" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-thumbs-down"></span>
+        </button>&nbsp;&nbsp;{{bloginfo.dislikes}}
+ 
+ <div id="demo" class="collapse">
+ 
+ <h4>{{bloginfo.blogcontent}}</h4>
+
+ </div>
+ 
+  <br>
+ <br>
+ <br>
+ <br>
+ 
+ <div class="panel panel-primary">
+ <div class="panel-heading"><h3><b><i><center>Comments</center></i></b></h3></div>
+ <div ng-repeat="blogcmnt in blogcmnts">
+  <div class="panel-body">
+  <h3>{{blogcmnt.username}} - {{blogcmnt.cmntdate}} - {{blogcmnt.cmnttext}}</h3>
+  
+  <div ng-show="currentUser.username==blogcmnt.username">
+  <input type="button" value="Delete" ng-click="deletecmnt(blogcmnt.cmntid)" class="btn btn-danger"/>
+  </div>
+  </div>
+ </div>
+ </div>
+ <br>
+ <br>
+ 
+ <div ng-hide="currentUser.username==bloginfo.username">
+    
+  <center><h3> Comment:&nbsp;<input type="text" ng-model="blogcmnt.cmnttext" name="Comment Text">
+   <input type="button" value="Add Comment" ng-click="addblogcmnt()"/></center>
+   
+ </div>
+
+</div>

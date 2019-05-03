@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Meetinghub</title>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-cookies.js"></script>
+<script src="RouteConfig.js"></script>
+<script src="Fuser/UserController.js"></script>
+<script src="Fblog/BlogController.js"></script>
+<script src="Fblog/BlogcmntController.js"></script>
+<script src="F_friend/FriendController.js"></script>
+<script src="Fjob/JobController.js"></script>
+<script src="F_forum/ForumController.js"></script>
+
+<script src="Fchat/ChatController.js"></script>
+<script src="Fchat/ChatService.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.1/sockjs.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.16.3/lodash.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+  
+
+</head>
+<body ng-app="myApp">
+
+<nav  class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a  class="navbar-brand" href="#">MeetingHub</a>
+    </div>
+    <ul  class="nav navbar-nav">
+      
+      <li><a class="nav-link" href="#/home" ng-show="currentUser==undefined"><h5>Home</h5></a></li>
+      <li><a class="nav-link" href="#/login" ng-show="currentUser==undefined"><h5>Login</h5></a></li>
+      <li><a class="nav-link" href="#/register" ng-show="currentUser==undefined"><h5>Register</h5></a></li>
+      <li><a class="nav-link" href="#/aboutus" ng-show="currentUser==undefined"><h5>About Us</h5></a></li>
+      <li><a class="nav-link" href="#/profilepic" ng-hide="currentUser==undefined"><h5>Profile Picture</h5></a></li>
+      <li><a class="nav-link" href="#/friendlist" ng-hide="currentUser==undefined"><h5>Friend List</h5></a></li>
+      <li><a class="nav-link" href="#/chat" ng-hide="currentUser==undefined"><h5>Chat</h5></a></li>
+      
+      
+      <li class="dropdown" ng-hide="currentUser==undefined">
+      
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><h5>Blog</h5></a>
+      <ul class="dropdown-menu">
+       <li><a class="nav-link" href="#/addblog">Add Blog</a></li>
+       <li><a class="nav-link" href="#/showblog">Show Blogs</a></li>
+       <li ng-show="currentUser.role=='Admin'"><a class="nav-link" href="#/manageblog">Manage Blogs</a>
+      </ul>
+      </li>  
+      
+       <li class="dropdown" ng-hide="currentUser==undefined">
+      
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><h5>Forum</h5></a>
+      <ul class="dropdown-menu">
+       <li><a class="nav-link" href="#/forum">Show Forum</a></li>
+       <li ng-show="currentUser.role=='Admin'"><a class="nav-link" href="#/manageforum">Manage Forums</a>
+       
+      </ul>
+      </li>
+      
+      <li class="dropdown" ng-hide="currentUser==undefined">
+      
+      <a class="dropdown-toggle" data-toggle="dropdown" href="#"><h5>Job</h5></a>
+      <ul class="dropdown-menu">
+       <li><a class="nav-link" href="#/showjobs">Show Jobs</a></li>
+       <li ng-show="currentUser.role=='Admin'"><a class="nav-link" href="#/managejobs">Manage Jobs</a>
+       </ul>
+       </li>
+               
+     </ul>
+     
+     <div class="nav navbar-right" ng-hide="currentUser==undefined">
+			<img src="http://localhost:8082/Middleware/getimage/{{currentUser.username}}" width="30" height="30"/>
+			<font color="blue">{{currentUser.customername}}</font>
+			<form ng-controller="UserController">
+				<input type="button" value="Logout" class="btn btn-warning" ng-click="logout()"/>
+			</form>
+		</div>
+     </div>
+     </nav>
+     
+     <br/><br/>
+        
+    <div ng-view></div>    
+    <br/><br/>
+     <div ng-show="currentUser==undefined">
+         <h1 style="color:blue;"><center><b><i>Meeting Hub</i></b></center></h1>
+       <center> <img src="Images/home.jpg" alt="Collaborate" width="800" height="400" ></center>
+       <h2 style="color:blue;"><center><i>Talent wins games, but teamwork and intelligence win championships</i></center></h2>
+</div>        
+
+
+</body>
+</html>

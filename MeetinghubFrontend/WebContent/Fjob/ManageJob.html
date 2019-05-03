@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<div class="container" ng-controller="JobController">
+
+<table class="table table-hover" align="center">
+   
+   <tr class="Warning">
+   <th>Job ID</th>
+   <th>Designation</th>
+   <th>Job Desc</th>
+   <th>Qualification</th>
+   <th>Created On</th>
+   <th colspan="2">Operations</th>
+   
+   </tr>
+   <tr ng-repeat="job in jobdata">
+   
+   <td>{{job.jobid}}</td>
+   <td>{{job.designation}}</td>
+   <td>{{job.jobdesc}}</td>
+    <td>{{job.qualification}}</td>
+   <td>{{job.createddate}}</td>
+   <td>
+    <input type="button" value="Delete" ng-click="deletejob(job.jobid)" class="btn btn-danger"/>
+   <input type="button" value="Edit" ng-click="editjob(job.jobid)" class="btn btn-info"/>
+   </td>
+   </tr>
+   </table>
+   <br>
+   <br>
+   <br>
+ 
+    <form>
+         <div class="row">
+        <div class="col-md-12 form-group">
+        <label>Designation</label>
+            <input type="text" name="designation" ng-model="job.designation" class="form-control" placeholder="Designation" required>
+        </div>
+    </div>
+    
+        <div class="row">
+        <div class="col-md-12 form-group">
+        <label>Job Desc</label>
+            <input type="text" name="jobdesc" ng-model="job.jobdesc" class="form-control" placeholder="Job Desc" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group">
+           <label>Qualification</label>
+           <input type="text" name="qualification" ng-model="job.qualification" class="form-control" placeholder="Qualification" required>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group">
+          <center>  <input type="submit" value="Add Job" class="btn btn-success" ng-click="addjob()" /></center>
+        </div>
+    </div>
+   </form>
+
+</div>
+</html>
